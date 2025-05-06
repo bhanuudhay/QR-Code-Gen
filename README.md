@@ -10,9 +10,9 @@ A sleek, modern QR Code Generator built with HTML, CSS (glassmorphism design), a
 - 🔹 Works entirely offline after initial load
 - 🔹 Clean, accessible, and user-friendly interface
 
-## 🚀 Live Demo
+## 🚀 Preview
 
-Coming soon... *(Optional: Add a GitHub Pages or Netlify link here)*
+![Screenshot](public/Screenshot%202025-05-06%20145234.png)
 
 ## 🛠️ Technologies Used
 
