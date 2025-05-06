@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QR Code Generator</title>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #1f1c2c, #928dab);
+        animation: fadeIn 1s ease-in;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .container {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 20px;
+        padding: 40px 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        text-align: center;
+        width: 320px;
+        color: #fff;
+        transition: transform 0.3s ease;
+      }
+
+      .container:hover {
+        transform: scale(1.02);
+      }
+
+      h1 {
+        font-size: 26px;
+        margin-bottom: 25px;
+        font-weight: 600;
+      }
+
+      input {
+        padding: 12px 15px;
+        width: 100%;
+        border: none;
+        border-radius: 12px;
+        margin-bottom: 20px;
+        outline: none;
+        font-size: 15px;
+        background-color: rgba(255, 255, 255, 0.2);
+        color: #fff;
+        backdrop-filter: blur(5px);
+      }
+
+      input::placeholder {
+        color: #ddd;
+      }
+
+      button {
+        padding: 12px 25px;
+        background: #ffffff30;
+        color: #fff;
+        border: none;
+        border-radius: 12px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background 0.3s ease, transform 0.2s ease;
+      }
+
+      button:hover {
+        background: #ffffff50;
+        transform: translateY(-2px);
+      }
+
+      canvas {
+        margin-top: 25px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>QR Code Generator</h1>
+      <input type="text" id="inp" placeholder="Enter anything" />
+      <button onclick="funct()">Generate QR</button>
+      <canvas id="canv"></canvas>
+    </div>
+
+    <script>
+      const canvas = document.getElementById("canv");
+
+      function funct() {
+        const text = document.getElementById("inp").value;
+        if (!text) {
+          alert("Please enter text.");
+          return;
+        }
+        QRCode.toCanvas(canvas, text, function (error) {
+          if (error) {
+            console.error("Error generating QR code:", error);
+          } else {
+            console.log("QR code generated.");
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
